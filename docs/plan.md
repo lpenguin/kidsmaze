@@ -14,11 +14,11 @@
 - ✅ Implement collision to prevent moving through walls
 - ✅ Create SVG assets for shapes with friendly faces
 
-## 3. Door Implementation
-- Create Door scene with cut-out for specific shape
-- Add collision detection and feedback (success/error)
-- Animate door opening and play sounds
-- Implement door-shape type validation
+## 3. Door Implementation ✅
+- ✅ Create Door scene with cut-out for specific shape
+- ✅ Add collision detection and feedback (success/error)
+- ✅ Animate door opening and play sounds
+- ✅ Implement door-shape type validation
 
 ## 4. Train Implementation
 - Create Train scene with locomotive and three cars
