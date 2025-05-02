@@ -32,6 +32,7 @@ var is_open = false
 func _ready():
 	# Connect the area signals
 	shape_cutout.body_entered.connect(_on_shape_entered)
+	shape_cutout.body_exited.connect(_on_shape_exited)
 
 # Called when a physics body enters the door's cutout area
 func _on_shape_entered(body):
@@ -51,6 +52,12 @@ func _on_shape_entered(body):
 			reject_shape(shape)
 			wrong_shape_tried.emit()
 
+# Called when a physics body exits the door's cutout area
+func _on_shape_exited(body):
+	# Check if the body is a CharacterBody2D (part of the shape)
+	if body.get_parent().is_in_group("shapes") and is_open:
+		close_door()
+
 # Open the door when the correct shape enters
 func open_door():
 	# Play open animation
@@ -64,9 +71,13 @@ func open_door():
 			audio_player.stream = sound
 			audio_player.play()
 	
-	# Disable the collision to let shapes pass through
-	collision_shape.disabled = true
+	# Disable the collision to let shapes pass through - use call_deferred to avoid physics errors
+	_disable_collision.call_deferred()
 	is_open = true
+
+# Helper function to safely disable collision
+func _disable_collision():
+	collision_shape.disabled = true
 
 # Reject shape that doesn't match the door type
 func reject_shape(shape):
@@ -86,7 +97,10 @@ func close_door():
 	if animation_player.has_animation(ANIMATION_CLOSE):
 		animation_player.play(ANIMATION_CLOSE)
 	
-	# Re-enable collision
-	collision_shape.disabled = false
+	# Re-enable collision - use call_deferred to avoid physics errors
+	_enable_collision.call_deferred()
 	is_open = false
 
+# Helper function to safely enable collision
+func _enable_collision():
+	collision_shape.disabled = false
