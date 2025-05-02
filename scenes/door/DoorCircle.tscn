@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5h04nqffqgck"]
 
-[ext_resource type="PackedScene" uid="uid://bd5xijfi0ekxq" path="res://scenes/door/door.tscn" id="1_f4v3j"]
-[ext_resource type="Texture2D" uid="uid://bl877idfaaatq" path="res://sprites/doors/door_circle.svg" id="2_plx7q"]
+[ext_resource type="PackedScene" uid="uid://bd5xijfi0ekxq" path="res://scenes/door/Door.tscn" id="1_f4v3j"]
+[ext_resource type="Texture2D" uid="uid://d0lclsbelnote" path="res://sprites/doors/door_circle.svg" id="2_plx7q"]
 
 [node name="DoorCircle" instance=ExtResource("1_f4v3j")]
 

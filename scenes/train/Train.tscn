@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://why1j1d0jdod"]
+
+[ext_resource type="Texture2D" uid="uid://cr2uaujb8dc3q" path="res://sprites/train/locomotive.svg" id="1_1112r"]
+[ext_resource type="Script" uid="uid://bsgkla4jwy1sj" path="res://scripts/train/train.gd" id="1_iopkt"]
+[ext_resource type="PackedScene" uid="uid://divpanawlyn4y" path="res://scenes/train/car.tscn" id="3_1nbj4"]
+[ext_resource type="Texture2D" uid="uid://guid6g6hmmar" path="res://sprites/train/car_square.svg" id="3_v1erj"]
+[ext_resource type="Texture2D" uid="uid://ckuw0g5yyqqv2" path="res://sprites/train/car_triangle.svg" id="4_cdfji"]
+
+[node name="Train" type="Node2D"]
+script = ExtResource("1_iopkt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1112r")
+
+[node name="CircleCar" parent="." instance=ExtResource("3_1nbj4")]
+position = Vector2(88, 0)
+
+[node name="SquareCar" parent="." instance=ExtResource("3_1nbj4")]
+position = Vector2(152, 0)
+texture = ExtResource("3_v1erj")
+expected_shape_type = "square"
+
+[node name="TriangleCar" parent="." instance=ExtResource("3_1nbj4")]
+position = Vector2(216, 0)
+texture = ExtResource("4_cdfji")
+expected_shape_type = "triangle"

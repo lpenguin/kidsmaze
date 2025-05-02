@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cwblh6w55hdn2"]
 
-[ext_resource type="PackedScene" uid="uid://bd5xijfi0ekxq" path="res://scenes/door/door.tscn" id="1_lw5ua"]
-[ext_resource type="Texture2D" uid="uid://dptm7i1s83h1n" path="res://sprites/doors/door_square.svg" id="2_s8qrt"]
+[ext_resource type="PackedScene" uid="uid://bd5xijfi0ekxq" path="res://scenes/door/Door.tscn" id="1_lw5ua"]
+[ext_resource type="Texture2D" uid="uid://t6764ksvlc3p" path="res://sprites/doors/door_square.svg" id="2_s8qrt"]
 
 [node name="DoorSquare" instance=ExtResource("1_lw5ua")]
 door_type = "square"

@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=4 uid="uid://de6747sh3fkr4"]
+[gd_scene load_steps=16 format=4 uid="uid://de6747sh3fkr4"]
 
 [ext_resource type="Script" uid="uid://u3og0mumun85" path="res://scripts/maze/maze.gd" id="1_gl5nl"]
-[ext_resource type="Texture2D" uid="uid://bp0giw2qjngre" path="res://sprites/maze/ground_atlas.svg" id="2_5xluw"]
-[ext_resource type="Texture2D" uid="uid://dp8cjthxidmng" path="res://sprites/maze/obstacles_atlas.svg" id="2_gl5nl"]
+[ext_resource type="Texture2D" uid="uid://urw14s7whaui" path="res://sprites/maze/ground_atlas.svg" id="2_5xluw"]
+[ext_resource type="Texture2D" uid="uid://ce4tppc8xupfb" path="res://sprites/maze/obstacles_atlas.svg" id="2_gl5nl"]
 [ext_resource type="PackedScene" uid="uid://c5vpr50e8ofoy" path="res://scenes/shapes/Circle.tscn" id="4_lis7g"]
+[ext_resource type="Script" path="res://scripts/door.gd" id="6_dhcyx"]
 [ext_resource type="PackedScene" uid="uid://c5h04nqffqgck" path="res://scenes/door/DoorCircle.tscn" id="6_ff8fi"]
 [ext_resource type="PackedScene" uid="uid://yev2rpyxnuvo" path="res://scenes/door/DoorTriangle.tscn" id="6_w274c"]
 [ext_resource type="PackedScene" uid="uid://c8hdkxdc8jrvd" path="res://scenes/shapes/Triangle.tscn" id="7_5i3a1"]
@@ -56,9 +57,11 @@ movement_speed = 10.0
 
 [node name="DoorTriangle" parent="." instance=ExtResource("6_w274c")]
 position = Vector2(480, 352)
+script = ExtResource("6_dhcyx")
 
 [node name="DoorCircle" parent="." instance=ExtResource("6_ff8fi")]
 position = Vector2(672, 352)
+script = ExtResource("6_dhcyx")
 
 [node name="Triangle" parent="." instance=ExtResource("7_5i3a1")]
 position = Vector2(920, 296)
@@ -68,3 +71,4 @@ position = Vector2(920, 224)
 
 [node name="DoorSquare" parent="." instance=ExtResource("9_17x8u")]
 position = Vector2(352, 352)
+script = ExtResource("6_dhcyx")
