@@ -1,8 +1,7 @@
-[gd_scene load_steps=18 format=4 uid="uid://de6747sh3fkr4"]
+[gd_scene load_steps=16 format=4 uid="uid://de6747sh3fkr4"]
 
 [ext_resource type="Script" uid="uid://u3og0mumun85" path="res://scripts/maze/maze.gd" id="1_gl5nl"]
-[ext_resource type="Texture2D" uid="uid://biq7oufsqnmok" path="res://sprites/maze/road.svg" id="2_3csgg"]
-[ext_resource type="Texture2D" uid="uid://bp0giw2qjngre" path="res://sprites/maze/ground_atlas.svg" id="2_5xluw"]
+[ext_resource type="Texture2D" uid="uid://bku1v3vb31nga" path="res://sprites/maze/road.png" id="2_dhcyx"]
 [ext_resource type="Texture2D" uid="uid://dp8cjthxidmng" path="res://sprites/maze/obstacles_atlas.svg" id="2_gl5nl"]
 [ext_resource type="PackedScene" uid="uid://c5vpr50e8ofoy" path="res://scenes/shapes/Circle.tscn" id="4_lis7g"]
 [ext_resource type="PackedScene" uid="uid://c5h04nqffqgck" path="res://scenes/door/DoorCircle.tscn" id="6_ff8fi"]
@@ -13,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://why1j1d0jdod" path="res://scenes/train/Train.tscn" id="10_dhcyx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4byld"]
-texture = ExtResource("2_3csgg")
+texture = ExtResource("2_dhcyx")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -157,12 +156,6 @@ texture_region_size = Vector2i(64, 64)
 4:3/0/terrains_peering_bit/left_side = 0
 4:3/0/terrains_peering_bit/top_side = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lis7g"]
-texture = ExtResource("2_5xluw")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-1:0/0 = 0
-
 [sub_resource type="TileSet" id="TileSet_5u4gc"]
 tile_size = Vector2i(64, 64)
 terrain_set_0/mode = 2
@@ -170,7 +163,6 @@ terrain_set_0/terrain_0/name = "Grass"
 terrain_set_0/terrain_0/color = Color(0.265851, 0.583706, 0.269003, 1)
 terrain_set_0/terrain_1/name = "Road"
 terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
-sources/1 = SubResource("TileSetAtlasSource_lis7g")
 sources/0 = SubResource("TileSetAtlasSource_4byld")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5xluw"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://biq7oufsqnmok"
-path="res://.godot/imported/road.svg-6140aa8e47691b9a585adf649f097724.ctex"
+uid="uid://bku1v3vb31nga"
+path="res://.godot/imported/road.png-3fafbb70fe5ff904a338d84d4893d9a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/maze/road.svg"
-dest_files=["res://.godot/imported/road.svg-6140aa8e47691b9a585adf649f097724.ctex"]
+source_file="res://sprites/maze/road.png"
+dest_files=["res://.godot/imported/road.png-3fafbb70fe5ff904a338d84d4893d9a7.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
