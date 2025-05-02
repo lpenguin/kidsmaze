@@ -87,3 +87,41 @@ Implement a basic gameplay prototype:
 - **Controls:** Mouse (desktop) and touch (mobile).
 - **Assets:** Temporary or hand-drawn assets are fine, swap for final art later as desired.
 - **Code:** Keep code readable and commented for easy future updates and extensions.
+
+---
+
+### **8. Coding Conventions**
+
+- **Class Names:** PascalCase (e.g., `TrainCar`, `ShapeDoor`)
+- **Variables & Functions:**
+  - Private variables: snake_case with underscore prefix (`_variable_name`)
+  - Public variables: snake_case without prefix (`variable_name`)
+  - Constants: UPPERCASE_WITH_UNDERSCORES
+  - Functions: snake_case (`func do_something()`)
+  
+- **Typing:**
+  - Use strong typing for function parameters and return values (`func add(a: int, b: int) -> int:`)
+  - Use type inference (`:=`) for local variables when type is clear (`var result := 10`)
+  - Explicitly type class variables and exported properties
+
+- **Node References:**
+  - Use `@onready` variables to cache node references
+  - Example: `@onready var _audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D`
+
+- **Signals:**
+  - Use async/await for signal handling when possible instead of connecting callbacks
+  - Signal names should be past tense for events that happened (`shape_placed_correctly`)
+
+- **Comments:**
+  - Use comments to explain "why" rather than "what" 
+  - Add a brief class description at the top of each script
+  - Document complex algorithms and non-obvious behavior
+
+- **Formatting:**
+  - Use tabs for indentation
+  - Use spaces around operators (`x = y + z`, not `x=y+z`)
+  - Keep lines under 100 characters when possible
+
+- **Organization:**
+  - Group related variables and functions together
+  - Order: constants, exported variables, regular variables, onready variables, signals, built-in functions (_ready, _process, etc.), custom functions

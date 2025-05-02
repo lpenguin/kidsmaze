@@ -37,8 +37,8 @@ func _ready():
 # Called when a physics body enters the door's cutout area
 func _on_shape_entered(body):
 	# Check if the body is a CharacterBody2D (part of the shape)
-	if body.get_parent().is_in_group("shapes"):
-		var shape = body.get_parent()
+	if body.is_in_group("shapes"):
+		var shape = body
 		
 		# If door is already open, let the shape pass through
 		if is_open:
@@ -55,7 +55,7 @@ func _on_shape_entered(body):
 # Called when a physics body exits the door's cutout area
 func _on_shape_exited(body):
 	# Check if the body is a CharacterBody2D (part of the shape)
-	if body.get_parent().is_in_group("shapes") and is_open:
+	if body.is_in_group("shapes") and is_open:
 		close_door()
 
 # Open the door when the correct shape enters

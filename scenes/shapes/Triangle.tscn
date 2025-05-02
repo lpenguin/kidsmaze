@@ -1,13 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://c8hdkxdc8jrvd"]
 
 [ext_resource type="PackedScene" uid="uid://b0q3d5ls3tox5" path="res://scenes/shapes/shape.tscn" id="1_kuqjr"]
-[ext_resource type="Texture2D" uid="uid://brq3b1axd2w4t" path="res://sprites/shapes/triangle.svg" id="2_vmtgy"]
+[ext_resource type="Texture2D" uid="uid://bsyna2uiumdkk" path="res://sprites/shapes/triangle.svg" id="2_vmtgy"]
 
 [node name="Triangle" instance=ExtResource("1_kuqjr")]
 shape_type = "triangle"
 
-[node name="Sprite2D" parent="CharacterBody2D" index="0"]
-texture = ExtResource("2_vmtgy")
-
-[node name="Sprite2D2" type="Sprite2D" parent="CharacterBody2D" index="1"]
+[node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("2_vmtgy")

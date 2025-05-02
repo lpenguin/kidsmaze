@@ -20,10 +20,10 @@
 - ✅ Animate door opening and play sounds
 - ✅ Implement door-shape type validation
 
-## 4. Train Implementation
-- Create Train scene with locomotive and three cars
-- Add cut-outs in cars for shapes
-- Validate shape placement and provide feedback
+## 4. Train Implementation ✅
+- ✅ Create Train scene with locomotive and three cars
+- ✅ Add cut-outs in cars for shapes
+- ✅ Validate shape placement and provide feedback
 
 ## 5. UI Implementation
 - Add Retry and Home buttons
