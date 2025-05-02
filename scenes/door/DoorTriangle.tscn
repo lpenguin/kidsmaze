@@ -1,15 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://yev2rpyxnuvo"]
 
-[ext_resource type="PackedScene" uid="uid://bd5xijfi0ekxq" path="res://scenes/door/Door.tscn" id="1_l2sfu"]
-[ext_resource type="Texture2D" uid="uid://db3fh0ao4spyx" path="res://sprites/doors/door_triangle.svg" id="2_rtiqm"]
+[ext_resource type="PackedScene" uid="uid://bt10xn7du4tjm" path="res://scenes/door/Door.tscn" id="1_l2sfu"]
+[ext_resource type="Texture2D" uid="uid://baxoayes16sj0" path="res://sprites/doors/door_triangle.svg" id="2_rtiqm"]
 
 [node name="DoorTriangle" instance=ExtResource("1_l2sfu")]
 door_type = "triangle"
 
-[node name="CollisionShape2D" parent="StaticBody2D" index="0"]
-disabled = true
-
 [node name="DoorSprite" parent="." index="2"]
-modulate = Color(1, 1, 1, 0.5)
-scale = Vector2(0.8, 1)
 texture = ExtResource("2_rtiqm")
