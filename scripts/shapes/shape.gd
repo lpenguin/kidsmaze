@@ -5,6 +5,7 @@ class_name Shape
 # Shape properties
 var _dragging := false
 var _drag_offset := Vector2.ZERO
+var _current_input_position := Vector2.ZERO  # Store the current input position (mouse or touch)
 @export var shape_type: String = "base"  # Set this directly in each child scene
 @export var movement_speed: float = 10.0  # Default movement speed multiplier
 var _can_move := true
@@ -36,30 +37,62 @@ func _ready() -> void:
 	# Make sure input processing is enabled
 	set_process_input(true)
 
+# Convert screen coordinates to global coordinates
+func _convert_to_global_position(screen_position: Vector2) -> Vector2:
+	# If the position is empty, use the current mouse position
+	if screen_position.is_zero_approx():
+		return get_global_mouse_position()
+	
+	# Convert screen position to global position
+	return get_canvas_transform().affine_inverse() * screen_position
+
 # Handle input events
 func _input(event: InputEvent) -> void:
 	if not _can_move:
 		return
-		
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed:
-			# Check if the mouse is over this shape
-			if _is_mouse_over_shape():
-				start_drag()
-		elif _dragging:
-			stop_drag()
-
-# Check if mouse is over this shape
-func _is_mouse_over_shape() -> bool:
-	# Get the mouse position
-	var mouse_pos := get_global_mouse_position()
 	
+	# Common variables for both mouse and touch
+	var is_pressed := false
+	var input_position := Vector2.ZERO
+	
+	# Extract common properties based on event type
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		is_pressed = event.pressed
+		input_position = event.position
+	elif event is InputEventScreenTouch:
+		is_pressed = event.pressed
+		input_position = event.position
+	elif event is InputEventMouseMotion and _dragging:
+		# Update current position for mouse movement during drag
+		_current_input_position = get_global_mouse_position()
+		return
+	elif event is InputEventScreenDrag and _dragging:
+		# Update current position for touch drag events
+		_current_input_position = _convert_to_global_position(event.position)
+		return
+	else:
+		# Not a relevant event
+		return
+	
+	# Convert screen position to global position
+	var global_input_position := _convert_to_global_position(input_position)
+	_current_input_position = global_input_position
+	
+	# Handle press/release with common code
+	if is_pressed:
+		if _is_point_over_shape(global_input_position):
+			start_drag(global_input_position)
+	elif _dragging:
+		stop_drag()
+
+# Check if a point is over this shape
+func _is_point_over_shape(point_position: Vector2) -> bool:
 	var collision_shape := $CollisionShape2D as CollisionShape2D
 	
 	# For circle shapes
 	if collision_shape.shape is CircleShape2D:
 		var radius := (collision_shape.shape as CircleShape2D).radius
-		var distance := global_position.distance_to(mouse_pos)
+		var distance := global_position.distance_to(point_position)
 		return distance < radius
 	
 	# Default fallback for other shapes (could be improved)
@@ -69,7 +102,12 @@ func _is_mouse_over_shape() -> bool:
 func _physics_process(delta: float) -> void:
 	var movement := Vector2.ZERO
 	var move_speed := movement_speed
-
+	
+	# Update current mouse position if dragging with mouse
+	if _dragging:
+		# For mouse dragging, always get the latest mouse position
+		_current_input_position = get_global_mouse_position()
+	
 	if _auto_moving:
 		# Calculate movement vector toward target_destination
 		movement = _target_destination - global_position
@@ -79,11 +117,10 @@ func _physics_process(delta: float) -> void:
 			_auto_moving = false
 			emit_signal("auto_movement_completed")
 			return
-			
 		move_speed = _auto_move_speed
 	elif _dragging:
-		# Calculate target position based on mouse
-		var target_position := get_global_mouse_position() - _drag_offset
+		# Calculate target position based on current input position
+		var target_position := _current_input_position - _drag_offset
 		
 		# Calculate movement vector
 		movement = target_position - global_position
@@ -111,9 +148,14 @@ func _physics_process(delta: float) -> void:
 					audio_player.stream = sound
 					audio_player.play()
 
-func start_drag() -> void:
+func start_drag(from_position: Vector2 = Vector2.ZERO) -> void:
 	_dragging = true
-	_drag_offset = get_global_mouse_position() - global_position
+	
+	# If no position provided, use current input position
+	if from_position.is_zero_approx():
+		_drag_offset = _current_input_position - global_position
+	else:
+		_drag_offset = from_position - global_position
 	
 	# Visual feedback for dragging
 	scale = Vector2(1.1, 1.1)  # Slightly enlarge shape
