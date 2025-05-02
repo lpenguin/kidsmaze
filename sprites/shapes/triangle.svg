@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+  <path d="M50,10 L90,80 L10,80 Z" fill="#2ecc71" stroke="#27ae60" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Simple face with smile -->
+  <circle cx="35" cy="60" r="5" fill="#2c3e50"/>
+  <circle cx="65" cy="60" r="5" fill="#2c3e50"/>
+  <path d="M35,70 Q50,80 65,70" fill="none" stroke="#2c3e50" stroke-width="4" stroke-linecap="round"/>
+</svg>

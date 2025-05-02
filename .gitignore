@@ -15,3 +15,8 @@ Thumbs.db
 
 # Godot editor metadata
 .editorconfig
+
+# Ide-specific files
+*.sublime-project
+.vscode/
+.idea/
