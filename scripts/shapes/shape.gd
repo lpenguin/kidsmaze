@@ -87,7 +87,7 @@ func _input(event: InputEvent) -> void:
 
 # Check if a point is over this shape
 func _is_point_over_shape(point_position: Vector2) -> bool:
-	var collision_shape := $CollisionShape2D as CollisionShape2D
+	var collision_shape := $TouchCollisionShape2D as CollisionShape2D
 	
 	# For circle shapes
 	if collision_shape.shape is CircleShape2D:

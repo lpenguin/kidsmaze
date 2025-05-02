@@ -1,10 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0q3d5ls3tox5"]
+[gd_scene load_steps=6 format=3 uid="uid://b0q3d5ls3tox5"]
 
 [ext_resource type="Texture2D" uid="uid://ba6g3m22xm8wp" path="res://sprites/shapes/circle.svg" id="1_kvvgm"]
 [ext_resource type="Script" uid="uid://c6f0voumqwjui" path="res://scripts/shapes/shape.gd" id="1_uktan"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kvvgm"]
 radius = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p5af6"]
+radius = 56.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uktan"]
 radius = 32.0
@@ -21,6 +24,11 @@ texture = ExtResource("1_kvvgm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_kvvgm")
+
+[node name="TouchCollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_p5af6")
+disabled = true
+debug_color = Color(0.912931, 0, 0.291584, 0.42)
 
 [node name="Area2D" type="Area2D" parent="."]
 
