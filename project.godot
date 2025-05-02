@@ -15,14 +15,6 @@ run/main_scene="uid://de6747sh3fkr4"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
-[display]
-
-window/size/viewport_width=800
-window/size/viewport_height=950
-window/size/resizable=true
-window/stretch/mode="canvas_items"
-window/stretch/aspect="keep"
-
 [dotnet]
 
 project/assembly_name="Kids Maze"

@@ -45,7 +45,7 @@ func _input(event: InputEvent) -> void:
 		if event.pressed:
 			# Check if the mouse is over this shape
 			if _is_mouse_over_shape():
-				start_drag(event.global_position)
+				start_drag()
 		elif _dragging:
 			stop_drag()
 
@@ -54,14 +54,12 @@ func _is_mouse_over_shape() -> bool:
 	# Get the mouse position
 	var mouse_pos := get_global_mouse_position()
 	
-	# Get the collision shape's global position and extents
-	var shape_pos := global_position
 	var collision_shape := $CollisionShape2D as CollisionShape2D
 	
 	# For circle shapes
 	if collision_shape.shape is CircleShape2D:
 		var radius := (collision_shape.shape as CircleShape2D).radius
-		var distance := shape_pos.distance_to(mouse_pos)
+		var distance := global_position.distance_to(mouse_pos)
 		return distance < radius
 	
 	# Default fallback for other shapes (could be improved)
@@ -113,9 +111,9 @@ func _physics_process(delta: float) -> void:
 					audio_player.stream = sound
 					audio_player.play()
 
-func start_drag(mouse_pos: Vector2) -> void:
+func start_drag() -> void:
 	_dragging = true
-	_drag_offset = mouse_pos - global_position
+	_drag_offset = get_global_mouse_position() - global_position
 	
 	# Visual feedback for dragging
 	scale = Vector2(1.1, 1.1)  # Slightly enlarge shape
