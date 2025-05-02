@@ -120,16 +120,17 @@ func stop_drag():
 
 # Check if the shape is properly placed (doors, train cars)
 func _check_placement():
+	pass
 	# Look for door areas that this shape might be overlapping with
-	var overlapping_areas = []
-	var areas = $CharacterBody2D/Area2D.get_overlapping_areas()
-	
-	for area in areas:
-		# Check if it's a door cutout area
-		if area.get_parent().has_method("_on_shape_entered"):
-			# Don't need to do anything here, as the door will handle the interaction
-			# through its _on_shape_entered method
-			pass
+	#var overlapping_areas = []
+	#var areas = $CharacterBody2D/Area2D.get_overlapping_areas()
+	#
+	#for area in areas:
+		## Check if it's a door cutout area
+		#if area.get_parent().has_method("_on_shape_entered"):
+			## Don't need to do anything here, as the door will handle the interaction
+			## through its _on_shape_entered method
+			#pass
 	
 	# Future: Add check for train car placement
 

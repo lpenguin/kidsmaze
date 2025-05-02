@@ -14,3 +14,11 @@ config/name="Kids Maze"
 run/main_scene="uid://de6747sh3fkr4"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[dotnet]
+
+project/assembly_name="Kids Maze"
+
+[global_group]
+
+shapes=""
