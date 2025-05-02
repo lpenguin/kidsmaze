@@ -231,4 +231,4 @@ movement_speed = 10.0
 position = Vector2(352, 32)
 
 [node name="Square" parent="Shapes" groups=["shapes"] instance=ExtResource("8_17x8u")]
-position = Vector2(288, 96)
+position = Vector2(200, 104)
