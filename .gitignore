@@ -1,0 +1,17 @@
+# Godot-specific ignores
+.godot/
+.import/
+*.import
+*.md5
+*.ctex
+
+# OS-specific ignores
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Godot editor metadata
+.editorconfig
