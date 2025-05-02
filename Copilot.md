@@ -7,12 +7,12 @@ This document outlines the rules and guidelines for developing the KidsMaze proj
 2. The project is written in GDScript.
 
 ## Scene Management
-1. The Copilot AI agent does not create or edit scenes directly.
-2. Instead, the Copilot AI agent provides detailed instructions for the user to create or edit scenes.
+1. The Copilot AI agent can create or edit code for scenes directly.
+2. Copilot will provide complete code implementations rather than just instructions.
 
 ## Asset Creation
-1. If an asset (e.g., image, sound, etc.) is required, the Copilot AI agent will request the user to create it.
-2. The request will include a clear and concise description or prompt for the asset.
+1. Copilot can create SVG assets directly when requested.
+2. Copilot will provide the complete SVG code for the required assets.
 
 ## General Guidelines
 1. Follow best practices for GDScript and Godot development.

@@ -120,8 +120,38 @@ func stop_drag():
 
 # Check if the shape is properly placed (doors, train cars)
 func _check_placement():
-	# Will be implemented for door and train car interaction
-	pass
+	# Look for door areas that this shape might be overlapping with
+	var overlapping_areas = []
+	var areas = $CharacterBody2D/Area2D.get_overlapping_areas()
+	
+	for area in areas:
+		# Check if it's a door cutout area
+		if area.get_parent().has_method("_on_shape_entered"):
+			# Don't need to do anything here, as the door will handle the interaction
+			# through its _on_shape_entered method
+			pass
+	
+	# Future: Add check for train car placement
+
+# Play shake animation to indicate a wrong placement
+func play_shake_animation():
+	# Create a simple shake animation using a Tween
+	var tween = create_tween()
+	var start_pos = $CharacterBody2D.position
+	
+	# Series of quick left-right movements
+	tween.tween_property($CharacterBody2D, "position", start_pos + Vector2(-5, 0), 0.05)
+	tween.tween_property($CharacterBody2D, "position", start_pos + Vector2(5, 0), 0.05)
+	tween.tween_property($CharacterBody2D, "position", start_pos + Vector2(-5, 0), 0.05)
+	tween.tween_property($CharacterBody2D, "position", start_pos + Vector2(5, 0), 0.05)
+	tween.tween_property($CharacterBody2D, "position", start_pos, 0.05)
+	
+	# Play error sound if available
+	if collision_sound_path and $AudioStreamPlayer2D:
+		var sound = load(collision_sound_path)
+		if sound:
+			$AudioStreamPlayer2D.stream = sound
+			$AudioStreamPlayer2D.play()
 
 # Get the shape type (used by doors and train cars)
 func get_shape_type():

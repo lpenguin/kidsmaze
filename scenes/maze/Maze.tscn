@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://de6747sh3fkr4"]
+[gd_scene load_steps=12 format=4 uid="uid://de6747sh3fkr4"]
 
 [ext_resource type="Script" uid="uid://u3og0mumun85" path="res://scripts/maze/maze.gd" id="1_gl5nl"]
 [ext_resource type="Texture2D" uid="uid://urw14s7whaui" path="res://sprites/maze/ground_atlas.svg" id="2_5xluw"]
 [ext_resource type="Texture2D" uid="uid://ce4tppc8xupfb" path="res://sprites/maze/obstacles_atlas.svg" id="2_gl5nl"]
 [ext_resource type="PackedScene" uid="uid://c5vpr50e8ofoy" path="res://scenes/shapes/Circle.tscn" id="4_lis7g"]
+[ext_resource type="PackedScene" uid="uid://bd5xijfi0ekxq" path="res://scenes/door/Door.tscn" id="5_ff8fi"]
+[ext_resource type="PackedScene" uid="uid://yev2rpyxnuvo" path="res://scenes/door/DoorTriangle.tscn" id="6_w274c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lis7g"]
 texture = ExtResource("2_5xluw")
@@ -48,3 +50,9 @@ tile_set = SubResource("TileSet_5xluw")
 [node name="Shape" parent="." instance=ExtResource("4_lis7g")]
 position = Vector2(896, 320)
 movement_speed = 10.0
+
+[node name="Door" parent="." instance=ExtResource("5_ff8fi")]
+position = Vector2(480, 480)
+
+[node name="DoorTriangle" parent="." instance=ExtResource("6_w274c")]
+position = Vector2(800, 160)
